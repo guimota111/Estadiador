@@ -11,6 +11,7 @@ import breastPhyllodes from './calculators/breast_phyllodes.js';
 import netColorectal from './calculators/net_colorectal.js';
 import netDuodAmp from './calculators/net_duodamp.js';
 import netJejIleum from './calculators/net_jejileum.js';
+import netPancreas from './calculators/net_pancreas.js';
 import adrenal from './calculators/adrenal.js';
 
 export const calculators = [
@@ -22,6 +23,7 @@ export const calculators = [
   netColorectal,
   netDuodAmp,
   netJejIleum,
+  netPancreas,
   adrenal,
 ];
 
