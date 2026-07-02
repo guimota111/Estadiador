@@ -41,6 +41,20 @@ export function stagingLine(tokens) {
   return `Estadiamento patológico (AJCC 8ªed.): ${body}.`;
 }
 
+/** Opções de pM para tumores neuroendócrinos do TGI (AJCC 8ª ed.). */
+export const PM_NET_OPTIONS = [
+  { value: 'na',  label: 'Não aplicável' },
+  { value: 'M1a', label: 'pM1a — metástase confinada ao fígado' },
+  { value: 'M1b', label: 'pM1b — metástase extra-hepática (≥1 sítio)' },
+  { value: 'M1c', label: 'pM1c — metástase hepática + extra-hepática' },
+  { value: 'M1',  label: 'pM1 — subcategoria indeterminada' },
+];
+
+/** Token de pM para NET; retorna null quando não aplicável. */
+export function pmNetToken(val) {
+  return (!val || val === 'na') ? null : 'p' + val;
+}
+
 /** Lista de categorias pN para seleção manual (casos especiais). */
 export const PN_OPTIONS = [
   { value: 'N0',      label: 'pN0 — sem metástase / só ITC' },

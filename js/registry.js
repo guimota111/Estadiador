@@ -8,6 +8,10 @@ import gastric from './calculators/gastric.js';
 import breastInvasive from './calculators/breast_invasive.js';
 import breastDcis from './calculators/breast_dcis.js';
 import breastPhyllodes from './calculators/breast_phyllodes.js';
+import netColorectal from './calculators/net_colorectal.js';
+import netDuodAmp from './calculators/net_duodamp.js';
+import netJejIleum from './calculators/net_jejileum.js';
+import adrenal from './calculators/adrenal.js';
 
 export const calculators = [
   breastInvasive,
@@ -15,6 +19,10 @@ export const calculators = [
   breastPhyllodes,
   colorectal,
   gastric,
+  netColorectal,
+  netDuodAmp,
+  netJejIleum,
+  adrenal,
 ];
 
 /** Ordem das seções na página inicial. */
