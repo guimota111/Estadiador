@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estadiador — Calculadoras de estadiamento tumoral</title>
+  <meta name="description" content="Calculadoras de estadiamento tumoral (TNM/AJCC 8ª ed.) baseadas nos protocolos da CAP. Gere o estadiamento e copie o texto para o laudo.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <span class="logo">Es</span>
+        <span>Estadiador <span class="tag">estadiamento tumoral</span></span>
+      </a>
+      <span class="header-spacer"></span>
+      <a class="header-link" href="#sobre">Sobre</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <span class="pill">TNM · AJCC 8ª edição · protocolos CAP</span>
+      <h1>Calculadoras de estadiamento tumoral</h1>
+      <p>Selecione o caso, informe os parâmetros e copie o texto do estadiamento pronto para o laudo. Organizado por sistema.</p>
+      <div class="search-box">
+        <span class="ico">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </span>
+        <input id="search" type="search" placeholder="Buscar tumor ou sistema… (ex.: colorretal, gástrico)" autocomplete="off">
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <div id="sections"></div>
+
+    <section id="sobre" class="section" style="margin-top:48px">
+      <div class="section-head"><h2>Sobre</h2><span class="bar"></span></div>
+      <div class="notice">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+        <span><strong>Ferramenta de apoio.</strong> Os resultados seguem o AJCC 8ª edição / protocolos CAP e destinam-se a auxiliar o patologista. A responsabilidade pelo estadiamento final e pela conferência do laudo é sempre do profissional. Atualmente há <strong id="total-count">0</strong> calculadora(s) publicada(s).</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <span>Estadiador · site estático · GitHub Pages</span>
+      <span>Baseado em AJCC 8ª ed. / CAP</span>
+    </div>
+  </footer>
+
+  <script type="module" src="js/home.js"></script>
+</body>
+</html>

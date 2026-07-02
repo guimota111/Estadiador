@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora — Estadiador</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <span class="logo">Es</span>
+        <span>Estadiador <span class="tag">estadiamento tumoral</span></span>
+      </a>
+      <span class="header-spacer"></span>
+      <a class="header-link" href="index.html">← Todas as calculadoras</a>
+    </div>
+  </header>
+
+  <main class="wrap" style="padding-top:28px;padding-bottom:80px">
+    <div class="breadcrumb">
+      <a href="index.html">Início</a> ·
+      <span id="crumb-section">Seção</span> ·
+      <span id="crumb-name">Calculadora</span>
+    </div>
+
+    <h1 class="calc-title" id="calc-title">Calculadora</h1>
+    <p class="calc-sub" id="calc-sub"></p>
+
+    <div class="calc-layout">
+      <div id="calc-form"></div>
+
+      <div class="result-col">
+        <div class="panel result-panel" id="calc-result">
+          <div class="result-head"><h3>Resultado</h3></div>
+          <div class="stage-badges" data-badges></div>
+          <div data-group></div>
+          <div data-warns></div>
+          <div class="report-box">
+            <textarea data-report readonly placeholder="Preencha os campos ao lado."></textarea>
+          </div>
+          <div class="report-actions">
+            <button class="btn btn-primary" data-copy>Copiar laudo</button>
+            <button class="btn btn-ghost" data-reset>Limpar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <span>Estadiador · ferramenta de apoio ao patologista</span>
+      <span>Confira sempre o estadiamento final.</span>
+    </div>
+  </footer>
+
+  <script type="module" src="js/calc-page.js"></script>
+</body>
+</html>
