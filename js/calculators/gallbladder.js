@@ -13,7 +13,7 @@ export default {
   system: 'AJCC 8ª ed.',
   version: 'CAP — Gallbladder v4.3',
   reference: 'AJCC 8th ed. / CAP Gallbladder 4.3.0.0',
-  summary: 'Estadiamento pTNM e grupo prognóstico do carcinoma da vesícula biliar.',
+  summary: 'Estadiamento pTNM do carcinoma da vesícula biliar.',
 
   fields: [
     {
@@ -71,25 +71,7 @@ export default {
     const M1 = v.pm === 'm1';
     const pMtoken = M1 ? 'pM1' : null;
 
-    // --- Grupo prognóstico (AJCC 8ª ed., vesícula biliar) ---
-    let group = null;
-    const T = v.pT;
-    if (T !== 'T0') {
-      const Neff = Ncat || 'N0';
-      if (v.nodeInput === 'none' && !M1) warnings.push('Grupo calculado assumindo pN0 (linfonodos não avaliados).');
-      if (M1) group = 'Estádio IVB';
-      else if (Neff === 'N2') group = 'Estádio IVB';
-      else if (T === 'Tis' && Neff === 'N0') group = 'Estádio 0';
-      else if (T === 'T4') group = 'Estádio IVA';           // T4 N0–N1
-      else if (Neff === 'N1') group = 'Estádio IIIB';        // T1–T3 N1
-      else if (T === 'T1a' || T === 'T1b') group = 'Estádio I';
-      else if (T === 'T2a') group = 'Estádio IIA';
-      else if (T === 'T2b') group = 'Estádio IIB';
-      else if (T === 'T3') group = 'Estádio IIIA';
-    }
-
-    const groupToken = group ? `— ${group}` : null;
-    const report = stagingLine([pTtoken, pNtoken, pMtoken, groupToken]);
+    const report = stagingLine([pTtoken, pNtoken, pMtoken]);
 
     return {
       tnm: [
@@ -97,7 +79,7 @@ export default {
         { k: 'pN', v: pNtoken || '— (não atribuído)' },
         { k: 'pM', v: pMtoken || '—' },
       ],
-      stageGroup: group,
+      stageGroup: null,
       warnings,
       report,
     };

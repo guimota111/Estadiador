@@ -14,7 +14,7 @@ export default {
   system: 'AJCC 8ª ed.',
   version: 'CAP — Perihilar Bile Ducts v4.3',
   reference: 'AJCC 8th ed. / CAP BileDuctPH 4.3.0.0',
-  summary: 'Estadiamento pTNM e grupo prognóstico do carcinoma peri-hilar das vias biliares.',
+  summary: 'Estadiamento pTNM do carcinoma peri-hilar das vias biliares.',
 
   fields: [
     {
@@ -72,24 +72,7 @@ export default {
     const M1 = v.pm === 'm1';
     const pMtoken = M1 ? 'pM1' : null;
 
-    // --- Grupo prognóstico (AJCC 8ª ed., peri-hilar) ---
-    let group = null;
-    const T = v.pT;
-    if (T !== 'T0') {
-      const Neff = Ncat || 'N0';
-      if (v.nodeInput === 'none' && !M1) warnings.push('Grupo calculado assumindo pN0 (linfonodos não avaliados).');
-      if (M1) group = 'Estádio IVB';
-      else if (T === 'Tis' && Neff === 'N0') group = 'Estádio 0';
-      else if (Neff === 'N2') group = 'Estádio IVA';
-      else if (Neff === 'N1') group = 'Estádio IIIC';
-      else if (T === 'T1') group = 'Estádio I';
-      else if (T === 'T2a' || T === 'T2b') group = 'Estádio II';
-      else if (T === 'T3') group = 'Estádio IIIA';
-      else if (T === 'T4') group = 'Estádio IIIB';
-    }
-
-    const groupToken = group ? `— ${group}` : null;
-    const report = stagingLine([pTtoken, pNtoken, pMtoken, groupToken]);
+    const report = stagingLine([pTtoken, pNtoken, pMtoken]);
 
     return {
       tnm: [
@@ -97,7 +80,7 @@ export default {
         { k: 'pN', v: pNtoken || '— (não atribuído)' },
         { k: 'pM', v: pMtoken || '—' },
       ],
-      stageGroup: group,
+      stageGroup: null,
       warnings,
       report,
     };

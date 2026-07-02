@@ -13,7 +13,7 @@ export default {
   system: 'AJCC 8ª ed.',
   version: 'CAP — Adrenal Gland v4.3',
   reference: 'AJCC 8th ed. / CAP Adrenal 4.3.1.0',
-  summary: 'Estadiamento pTNM e grupo prognóstico do carcinoma cortical da adrenal.',
+  summary: 'Estadiamento pTNM do carcinoma cortical da adrenal.',
 
   fields: [
     {
@@ -60,21 +60,7 @@ export default {
     const M1 = v.pm === 'm1';
     const pMtoken = M1 ? 'pM1' : null;
 
-    // --- Grupo prognóstico (AJCC 8ª ed.) ---
-    let group = null;
-    const T = v.pT;
-    if (T !== 'T0') {
-      const Neff = Ncat || 'N0'; // assume N0 se não avaliado
-      if (v.pN === 'none' && !M1) warnings.push('Grupo calculado assumindo pN0 (linfonodos não avaliados).');
-      if (M1) group = 'Estádio IV';
-      else if (T === 'T3' || T === 'T4') group = 'Estádio III';
-      else if (Neff === 'N1') group = 'Estádio III';
-      else if (T === 'T1') group = 'Estádio I';
-      else if (T === 'T2') group = 'Estádio II';
-    }
-
-    const groupToken = group ? `— ${group}` : null;
-    const report = stagingLine([pTtoken, pNtoken, pMtoken, groupToken]);
+    const report = stagingLine([pTtoken, pNtoken, pMtoken]);
 
     return {
       tnm: [
@@ -82,7 +68,7 @@ export default {
         { k: 'pN', v: pNtoken || '— (não atribuído)' },
         { k: 'pM', v: pMtoken || '—' },
       ],
-      stageGroup: group,
+      stageGroup: null,
       warnings,
       report,
     };

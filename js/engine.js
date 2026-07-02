@@ -151,7 +151,8 @@ export function mountCalculator(calc, formRoot, resultRoot) {
 
     const { badges, group, warns } = renderResult(result);
     resultRoot.querySelector('[data-badges]').innerHTML = badges;
-    resultRoot.querySelector('[data-group]').innerHTML = group;
+    const groupEl = resultRoot.querySelector('[data-group]');
+    if (groupEl) groupEl.innerHTML = group;
     resultRoot.querySelector('[data-warns]').innerHTML = warns;
     resultRoot.querySelector('[data-report]').value = result.report || '';
   }

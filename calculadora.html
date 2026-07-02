@@ -5,57 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Calculadora — Estadiador</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap">
+  <div class="app">
+    <aside class="sidebar">
       <a class="brand" href="index.html">
         <span class="logo">Es</span>
-        <span>Estadiador <span class="tag">estadiamento tumoral</span></span>
+        <span class="name">Estadiador<small>estadiamento tumoral</small></span>
       </a>
-      <span class="header-spacer"></span>
-      <a class="header-link" href="index.html">← Todas as calculadoras</a>
-    </div>
-  </header>
+      <div class="side-block">
+        <a class="nav-item" href="index.html">
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></span>
+          <span class="txt">Todas as calculadoras</span>
+        </a>
+      </div>
+      <nav class="side-block" id="side-siblings"></nav>
+      <div class="side-foot">
+        Baseado em AJCC 8ª ed. / protocolos CAP.<br>
+        Confira sempre o estadiamento final.
+      </div>
+    </aside>
 
-  <main class="wrap" style="padding-top:28px;padding-bottom:80px">
-    <div class="breadcrumb">
-      <a href="index.html">Início</a> ·
-      <span id="crumb-section">Seção</span> ·
-      <span id="crumb-name">Calculadora</span>
-    </div>
-
-    <h1 class="calc-title" id="calc-title">Calculadora</h1>
-    <p class="calc-sub" id="calc-sub"></p>
-
-    <div class="calc-layout">
-      <div id="calc-form"></div>
-
-      <div class="result-col">
-        <div class="panel result-panel" id="calc-result">
-          <div class="result-head"><h3>Resultado</h3></div>
-          <div class="stage-badges" data-badges></div>
-          <div data-group></div>
-          <div data-warns></div>
-          <div class="report-box">
-            <textarea data-report readonly placeholder="Preencha os campos ao lado."></textarea>
+    <div class="content">
+      <div class="container">
+        <header class="calc-head">
+          <div class="breadcrumb">
+            <a href="index.html">Início</a> ·
+            <span id="crumb-section">Seção</span> ·
+            <span id="crumb-name">Calculadora</span>
           </div>
-          <div class="report-actions">
-            <button class="btn btn-primary" data-copy>Copiar laudo</button>
-            <button class="btn btn-ghost" data-reset>Limpar</button>
+          <h1 class="calc-title" id="calc-title">Calculadora</h1>
+          <p class="calc-sub" id="calc-sub"></p>
+        </header>
+
+        <div class="calc-layout">
+          <div id="calc-form"></div>
+
+          <div class="result-col">
+            <div class="panel result-panel" id="calc-result">
+              <div class="result-head"><span class="dot"></span><h3>Resultado</h3></div>
+              <div class="stage-badges" data-badges></div>
+              <div data-warns></div>
+              <div class="report-box">
+                <div class="rlabel">Texto para o laudo</div>
+                <textarea data-report readonly placeholder="Preencha os campos ao lado."></textarea>
+              </div>
+              <div class="report-actions">
+                <button class="btn btn-primary" data-copy>Copiar laudo</button>
+                <button class="btn btn-ghost" data-reset>Limpar</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </main>
-
-  <footer class="footer">
-    <div class="wrap">
-      <span>Estadiador · ferramenta de apoio ao patologista</span>
-      <span>Confira sempre o estadiamento final.</span>
-    </div>
-  </footer>
+  </div>
 
   <script type="module" src="js/calc-page.js"></script>
 </body>

@@ -88,7 +88,6 @@ export default {
       'p' + T,
       N ? 'p' + N : null,
       M === 'M0' ? null : 'p' + M,
-      group ? '— ' + group : null,
     ].filter(Boolean);
     const report = `Estadiamento patológico (AJCC 8ªed.): ${tokens.join(' ')}.`;
 
@@ -98,7 +97,7 @@ export default {
         { k: 'pN', v: N ? 'p' + N : '—' },
         { k: 'pM', v: M === 'M0' ? 'pM0' : 'p' + M },
       ],
-      stageGroup: group,
+      stageGroup: null,
       warnings,
       report,
     };

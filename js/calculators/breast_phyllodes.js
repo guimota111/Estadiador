@@ -15,7 +15,7 @@ export default {
   system: 'AJCC 8ª ed.',
   version: 'CAP — Breast Phyllodes v1.1',
   reference: 'AJCC 8th ed. (sarcoma de partes moles, tronco) / CAP Breast.Phyllodes 1.1.0.1',
-  summary: 'Estadiamento pTNM e grupo prognóstico do tumor Phyllodes MALIGNO (não se aplica a benigno/borderline).',
+  summary: 'Estadiamento pTNM do tumor Phyllodes MALIGNO (não se aplica a benigno/borderline).',
 
   fields: [
     {
@@ -92,21 +92,7 @@ export default {
     const M1 = v.pm === 'm1';
     const pMtoken = M1 ? 'pM1' : null;
 
-    // Grupo prognóstico (tabela do protocolo; assume alto grau)
-    let group = null;
-    if (Tcat !== 'TX') {
-      if (M1 || Ncat === 'N1') group = 'Estádio IV';
-      else if (Tcat === 'T1') group = 'Estádio II';
-      else if (Tcat === 'T2') group = 'Estádio IIIA';
-      else group = 'Estádio IIIB'; // T3 ou T4
-      // Sem informação nodal, o grupo assume N0.
-      if (v.nodeInput === 'none' && !M1) {
-        warnings.push('Grupo calculado assumindo pN0 (sem linfonodos avaliados).');
-      }
-    }
-
-    const groupToken = group ? `— ${group}` : null;
-    const report = stagingLine([pTtoken, pNtoken, pMtoken, groupToken]);
+    const report = stagingLine([pTtoken, pNtoken, pMtoken]);
 
     return {
       tnm: [
@@ -114,7 +100,7 @@ export default {
         { k: 'pN', v: pNtoken || '— (não atribuído)' },
         { k: 'pM', v: pMtoken || '—' },
       ],
-      stageGroup: group,
+      stageGroup: null,
       warnings,
       report,
     };
