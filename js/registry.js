@@ -12,6 +12,8 @@ import netColorectal from './calculators/net_colorectal.js';
 import netDuodAmp from './calculators/net_duodamp.js';
 import netJejIleum from './calculators/net_jejileum.js';
 import netPancreas from './calculators/net_pancreas.js';
+import bileductPerihilar from './calculators/bileduct_perihilar.js';
+import gallbladder from './calculators/gallbladder.js';
 import adrenal from './calculators/adrenal.js';
 
 export const calculators = [
@@ -24,12 +26,15 @@ export const calculators = [
   netDuodAmp,
   netJejIleum,
   netPancreas,
+  bileductPerihilar,
+  gallbladder,
   adrenal,
 ];
 
 /** Ordem das seções na página inicial. */
 export const sectionOrder = [
   'Trato Gastrointestinal',
+  'Fígado e Vias Biliares',
   'Trato Geniturinário',
   'Mama',
   'Trato Ginecológico',
