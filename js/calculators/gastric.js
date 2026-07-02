@@ -71,17 +71,13 @@ export default {
 
     const group = stageGroup(T, N, M);
 
-    const nText = N ? `p${N} — ${nDesc}` : 'pN não avaliável';
-    const examText = (exam != null || pos != null) ? `(${pos ?? '?'}/${exam ?? '?'} linfonodos)` : '';
-
-    const report =
-`ESTADIAMENTO PATOLÓGICO — Carcinoma gástrico (AJCC 8ª edição)
-Tumor primário (pT): p${Traw}
-Linfonodos regionais (pN): ${nText} ${examText}
-Metástase à distância (pM): ${M === 'M0' ? 'pM0 (sem metástase à distância)' : 'pM1'}
-Grupo prognóstico: ${group || '— (combinação não classificável)'}
-
-Estadiamento: p${Traw} ${N ? 'p' + N : 'pNx'} ${M === 'M0' ? '' : 'pM1'}`.trim();
+    const tokens = [
+      'p' + Traw,
+      N ? 'p' + N : null,
+      M === 'M0' ? null : 'pM1',
+      group ? '— ' + group : null,
+    ].filter(Boolean);
+    const report = `Estadiamento patológico (AJCC 8ªed.): ${tokens.join(' ')}.`;
 
     return {
       tnm: [

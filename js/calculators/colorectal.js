@@ -83,20 +83,14 @@ export default {
     // --- Grupo prognóstico (AJCC 8ª ed.) ---
     const group = stageGroup(T, N, M);
 
-    // --- Texto do laudo ---
-    const line = (k, val) => `${k}: ${val}`;
-    const nText = N ? `p${N} — ${nDesc}` : 'pN não avaliável';
-    const examText = (exam != null || pos != null)
-      ? `(${pos ?? '?'}/${exam ?? '?'} linfonodos)` : '';
-
-    const report =
-`ESTADIAMENTO PATOLÓGICO — Carcinoma colorretal (AJCC 8ª edição)
-${line('Tumor primário (pT)', 'p' + T)}
-${line('Linfonodos regionais (pN)', `${nText} ${examText}`.trim())}
-${line('Metástase à distância (pM)', M === 'M0' ? 'pM0 (sem metástase à distância)' : 'p' + M)}
-${line('Grupo prognóstico', group || '— (combinação não classificável)')}
-
-Estadiamento: p${T} ${N ? 'p' + N : 'pNx'} ${M === 'M0' ? '' : 'p' + M}`.trim();
+    // --- Texto do laudo (formato enxuto) ---
+    const tokens = [
+      'p' + T,
+      N ? 'p' + N : null,
+      M === 'M0' ? null : 'p' + M,
+      group ? '— ' + group : null,
+    ].filter(Boolean);
+    const report = `Estadiamento patológico (AJCC 8ªed.): ${tokens.join(' ')}.`;
 
     return {
       tnm: [

@@ -5,8 +5,14 @@
 
 import colorectal from './calculators/colorectal.js';
 import gastric from './calculators/gastric.js';
+import breastInvasive from './calculators/breast_invasive.js';
+import breastDcis from './calculators/breast_dcis.js';
+import breastPhyllodes from './calculators/breast_phyllodes.js';
 
 export const calculators = [
+  breastInvasive,
+  breastDcis,
+  breastPhyllodes,
   colorectal,
   gastric,
 ];
