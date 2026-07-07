@@ -14,6 +14,7 @@ import netJejIleum from './calculators/net_jejileum.js';
 import netPancreas from './calculators/net_pancreas.js';
 import bileductPerihilar from './calculators/bileduct_perihilar.js';
 import gallbladder from './calculators/gallbladder.js';
+import uterusEndometrium from './calculators/uterus_endometrium.js';
 import adrenal from './calculators/adrenal.js';
 
 export const calculators = [
@@ -28,6 +29,7 @@ export const calculators = [
   netPancreas,
   bileductPerihilar,
   gallbladder,
+  uterusEndometrium,
   adrenal,
 ];
 
