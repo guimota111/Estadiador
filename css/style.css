@@ -206,10 +206,10 @@ main { padding-bottom: 70px; }
 .result-head .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 4px var(--brand-050); }
 .result-head h3 { margin: 0; font-size: .82rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
 
-.stage-badges { display: flex; gap: 10px; padding: 20px 20px 6px; }
-.badge { flex: 1; text-align: center; background: var(--surface-2); border: 1px solid var(--line-2); border-radius: var(--r-sm); padding: 11px 6px; }
-.badge .k { font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; color: var(--faint); font-weight: 700; }
-.badge .v { font-size: 1.12rem; font-weight: 750; color: var(--ink); margin-top: 3px; font-variant-numeric: tabular-nums; }
+.stage-badges { display: flex; flex-wrap: wrap; gap: 8px; padding: 20px 20px 6px; }
+.badge { flex: 1 1 64px; min-width: 64px; text-align: center; background: var(--surface-2); border: 1px solid var(--line-2); border-radius: var(--r-sm); padding: 10px 5px; }
+.badge .k { font-size: .64rem; text-transform: uppercase; letter-spacing: .05em; color: var(--faint); font-weight: 700; white-space: nowrap; }
+.badge .v { font-size: 1.02rem; font-weight: 750; color: var(--ink); margin-top: 3px; word-break: break-word; line-height: 1.15; }
 
 .report-box { padding: 14px 20px 0; }
 .report-box .rlabel { font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--faint); font-weight: 700; margin-bottom: 7px; }
